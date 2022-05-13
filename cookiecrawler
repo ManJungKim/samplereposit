@@ -1,0 +1,106 @@
+#-*- coding: utf-8 -*-
+import cv2, numpy, glob, pyautogui, threading, random, _thread
+from tkinter import *
+from tkinter import messagebox
+from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import asksaveasfile
+from tkinter.filedialog import askdirectory
+from PIL import ImageGrab, Image, ImageTk, ImageOps, ImageDraw
+from win32api import GetSystemMetrics
+import win32gui, win32api, win32con, os, sys, time, win32com.client, ctypes
+import win32com.shell.shell as shell
+from urllib.request import urlopen
+from datetime import datetime, timedelta
+
+import requests
+from time import localtime
+from shutil import copyfile
+
+import pickle
+import win32con
+import pyperclip
+import io
+#import admin
+import pymysql
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import json
+import webbrowser
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+import smtplib
+import shutil
+from email import encoders
+from email.mime.text import MIMEText
+from email.message import Message
+from email.mime.audio import MIMEAudio
+from email.mime.base import MIMEBase
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+
+from pynput.keyboard import Key, Controller
+import subprocess
+import shutil
+from shutil import copyfile
+import csv
+from random import randint
+from random import shuffle
+from bs4 import BeautifulSoup
+from selenium.webdriver.support.ui import Select
+import random
+
+from selenium.webdriver.chrome.options import Options
+import chromedriver_autoinstaller
+
+mousex = 0
+mousey = 0
+filenamelist = []
+searchstart = 0 # 0 : 시작안함 1 : 시작함
+screen_width = win32api.GetSystemMetrics(0)
+screen_height = win32api.GetSystemMetrics(1)
+theloopindex = 0
+currentImageMaxVal = 0.997
+
+
+def main():
+
+    subprocess.Popen(r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\chrometemp"') # 디버거 크롬 구동
+
+    option = Options()
+    option.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+
+    chrome_ver = chromedriver_autoinstaller.get_chrome_version().split('.')[0]
+    try:
+        driver = webdriver.Chrome(f'./{chrome_ver}/chromedriver.exe', options=option)
+    except:
+        chromedriver_autoinstaller.install(True)
+        driver = webdriver.Chrome(f'./{chrome_ver}/chromedriver.exe', options=option)
+    driver.implicitly_wait(5)
+
+
+def find_between( s, first, last ):
+    try:
+        start = s.index( first ) + len( first )
+        end = s.index( last, start )
+        return s[start:end]
+    except ValueError:
+        return ""
+
+    
+
+def find_between_r( s, first, last ):
+    try:
+        start = s.rindex( first ) + len( first )
+        end = s.rindex( last, start )
+        return s[start:end]
+    except ValueError:
+        return ""
+
+
+
+
+main()
